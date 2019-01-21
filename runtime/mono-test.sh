@@ -22,6 +22,11 @@ echo "--------------------------------------------------------------------------
 "${MONO_EXECUTABLE}" --version
 echo "---------------------------------------------------------------------------------------"
 
+echo "MARTIN TEST!"
+ls -l /usr/bin/dpkg-architecture
+ls -l ~/.config
+echo "MARTIN TEST #1"
+
 if [ -x "/usr/bin/dpkg-architecture" ];
 	then
 	EXTRA_CONF_FLAGS="$EXTRA_CONF_FLAGS --host=`/usr/bin/dpkg-architecture -qDEB_HOST_GNU_TYPE`"
@@ -29,6 +34,13 @@ if [ -x "/usr/bin/dpkg-architecture" ];
 	mkdir -p ~/.config/.mono/
 	wget -qO- https://download.mono-project.com/test/new-certs.tgz| tar zx -C ~/.config/.mono/
 fi
+
+echo "MARTIN TEST #2"
+
+ls -l ~/.config/mono
+ls -laR ~/.config/.mono
+
+echo "MARTIN TEST #3"
 
 if [ "$test_suite" = "--xunit" ]; then
     cd net_4_x || exit 1
